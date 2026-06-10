@@ -217,16 +217,6 @@ input[type=text]:focus, input[type=password]:focus { border-color:var(--teal); }
 .rule-body  { line-height:1.9; font-size:.84rem; color:var(--gray2); }
 .rule-body p { margin-bottom:4px; }
 
-/* ── sticky save bar ── */
-#save-bar {
-  position:fixed; bottom:0; left:0; right:0;
-  background:var(--white); border-top:2px solid var(--teal-light);
-  padding:10px 16px; z-index:100;
-  box-shadow:0 -2px 12px rgba(43,45,63,.10);
-  max-width:820px; margin:0 auto;
-}
-#save-bar .msg { margin-bottom:6px; }
-
 /* ── responsive ── */
 @media(max-width:480px) {
   .prize-amount { font-size:2.2rem; }
@@ -581,10 +571,11 @@ function renderGrupos() {
     return `<div class="jornada-hdr">Jornada ${md}</div>` +
       ms.map(m => {
         const s = S.data.resultados[m.id];
-        return `<div class="match-row ${s?.played?'played':''}">
+        return `<div class="match-row ${s?.played?'played':''}" style="flex-wrap:wrap;gap:2px">
           <span class="team-name team-home">${FLAGS(m.h)} ${m.h}</span>
           <span class="score-box ${s?.played?'score-live':'score-pending'}">${s?.played?`${s.h} – ${s.a}`:`#${MATCH_NUM[m.id]}`}</span>
           <span class="team-name">${FLAGS(m.a)} ${m.a}</span>
+          <span style="width:100%;text-align:center;font-size:.65rem;color:var(--muted);margin-top:2px">${m.date} · ${m.time}</span>
         </div>`;
       }).join("");
   }).join("");
@@ -683,15 +674,12 @@ function renderQFill() {
     <span style="font-size:.74rem;color:var(--muted)">${total}/72 ✓</span>
   </div>
   <div class="group-tabs">${groupBtns}</div>
-  <div id="q-msg"></div>
   <div class="card">
     <div class="card-title">Grupo ${g}</div>
     ${matchForms}
   </div>
-  <div style="height:80px"></div>
-  <div id="save-bar">
-    <button class="btn btn-gold" id="btn-save-q">💾 Guardar Quiniela</button>
-  </div>`;
+  <button class="btn btn-gold" id="btn-save-q">💾 Guardar Quiniela</button>
+  <div id="q-msg"></div>`;
 }
 
 // ═══════════════════════════════════════════════════════════
