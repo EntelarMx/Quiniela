@@ -513,13 +513,13 @@ function renderDashboard() {
   <div class="card" style="border-color:var(--gold)">
     <div class="prize-pool">
       <div style="font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em">💰 Bolsa Acumulada</div>
-      <div class="prize-amount">$${pot.toLocaleString()}</div>
+      <div class="prize-amount">$${pot.toLocaleString('es-MX')}</div>
       <div class="prize-sub">${n} participantes × $${ENTRY_FEE} apuesta · Entelar duplica</div>
       <div class="prize-grid">
         ${pcts.map((pct,i) => `
           <div class="prize-item">
             <div class="prize-place">${medals[i]}</div>
-            <div class="prize-val" style="color:${pCols[i]||'var(--gold)'}">$${Math.floor(pot*pct).toLocaleString()}</div>
+            <div class="prize-val" style="color:${pCols[i]||'var(--gold)'}">$${Math.floor(pot*pct).toLocaleString('es-MX')}</div>
             <div style="font-size:.68rem;color:var(--muted)">${pct*100}%</div>
           </div>`).join("")}
       </div>
@@ -743,9 +743,9 @@ function renderReglas() {
       <div class="rule-body">
         <p>• Apuesta: <strong style="color:var(--teal)">$100 MXN</strong> por participante</p>
         <p>• Entelar duplica el total acumulado</p>
-        <p>• Bolsa acumulada: <strong style="color:var(--teal)">$${pot.toLocaleString()} MXN</strong> (${n} participantes)</p>
+        <p>• Bolsa acumulada: <strong style="color:var(--teal)">$${pot.toLocaleString('es-MX')} MXN</strong> (${n} participantes)</p>
         <p>• Distribución: 🥇 1er lugar 60% · 🥈 2do lugar 30% · 🥉 3er lugar 10%</p>
-        <p>• Premios actuales: 🥇 $${Math.floor(pot*.6).toLocaleString()} · 🥈 $${Math.floor(pot*.3).toLocaleString()} · 🥉 $${Math.floor(pot*.1).toLocaleString()}</p>
+        <p>• Premios actuales: 🥇 $${Math.floor(pot*.6).toLocaleString('es-MX')} · 🥈 $${Math.floor(pot*.3).toLocaleString('es-MX')} · 🥉 $${Math.floor(pot*.1).toLocaleString('es-MX')}</p>
       </div>
     </div>
     <div class="rule-block">
