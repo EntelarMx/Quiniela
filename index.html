@@ -461,7 +461,7 @@ function calcStandings() {
     let pts=0, exact=0, correct=0;
     MATCHES.forEach(m => {
       const p = calcPts(quinielas[name]?.[m.id], resultados[m.id]);
-      if (p === 3) { pts+=3; exact++; correct++; }
+      if (p === 3) { pts+=3; exact++; }
       else if (p === 1) { pts+=1; correct++; }
     });
     return { name, pts, exact, correct };
